@@ -1,0 +1,46 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "parser": "babel-eslint",
+    "extends": ["airbnb", "prettier", "plugin:react/recommended"],
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": ["react", "prettier"],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "printWidth": 80,
+          "trailingComma": "es5",
+          "semi": true,
+          "jsxSingleQuote": true,
+          "singleQuote": true,
+          "useTabs": true,
+          "endOfLine": "auto"
+        }
+      ],
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "react/state-in-constructor": "off",
+      "react/react-in-jsx-scope": "off",
+      "no-unused-vars": [
+        "warn",
+        { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
+      ],
+      "react/forbid-prop-types": "warn",
+      "import/no-extraneous-dependencies": "off",
+      "import/prefer-default-export": "off",
+      "react/jsx-props-no-spreading": "off"
+    }
+  }
+  
