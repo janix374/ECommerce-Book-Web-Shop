@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/ecommerce-book-web-shop/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/ecommerce-book-web-shop/static/js/main.8a32fcec.chunk.js",
+    "main.js.map": "/ecommerce-book-web-shop/static/js/main.8a32fcec.chunk.js.map",
+    "runtime-main.js": "/ecommerce-book-web-shop/static/js/runtime-main.0f8b21ff.js",
+    "runtime-main.js.map": "/ecommerce-book-web-shop/static/js/runtime-main.0f8b21ff.js.map",
+    "static/js/2.9aeb84d4.chunk.js": "/ecommerce-book-web-shop/static/js/2.9aeb84d4.chunk.js",
+    "static/js/2.9aeb84d4.chunk.js.map": "/ecommerce-book-web-shop/static/js/2.9aeb84d4.chunk.js.map",
+    "index.html": "/ecommerce-book-web-shop/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/ecommerce-book-web-shop/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.9aeb84d4.chunk.js.LICENSE.txt": "/ecommerce-book-web-shop/static/js/2.9aeb84d4.chunk.js.LICENSE.txt",
+    "static/media/commerce.6be6b89c.png": "/ecommerce-book-web-shop/static/media/commerce.6be6b89c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0f8b21ff.js",
+    "static/js/2.9aeb84d4.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.8a32fcec.chunk.js"
+  ]
+}
