@@ -8,6 +8,8 @@ import {
 	IconButton,
 } from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons';
+import ImportContactsIcon from '@material-ui/icons/ImportContacts';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import useStyles from './styles';
@@ -40,8 +42,14 @@ const Product = ({ product, onAddToCart }) => {
 				</div>
 			</CardContent>
 			<CardActions disableSpacing className={classes.CardActions}>
+				<IconButton arial-label='details' title='Details'>
+					<Link to={`/products/${product.id}`}>
+						<ImportContactsIcon />
+					</Link>
+				</IconButton>
 				<IconButton
 					arial-label='Add to Cart'
+					title='Add to Cart'
 					onClick={() => onAddToCart(product.id, 1)}
 				>
 					<AddShoppingCart />

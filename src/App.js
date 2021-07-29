@@ -6,6 +6,9 @@ import { commerce } from './lib/commerce';
 import Products from './components/products/Products';
 import NavBar from './components/navbar/Navbar';
 import Cart from './components/cart/Cart';
+import ProductDetails from './components/products/productDetail/ProductDetails';
+import Home from './components/home/Home';
+import Checkout from './components/checkoutForm/checkout/Checkout';
 
 function App() {
 	const [products, setProducts] = useState([]);
@@ -78,7 +81,13 @@ function App() {
 				<Container>
 					<Switch>
 						<Route exact path='/'>
+							<Home />
+						</Route>
+						<Route exact path='/products'>
 							<Products products={products} onAddToCart={handleAddCart} />
+						</Route>
+						<Route expect path='/products/:id'>
+							<ProductDetails onAddToCart={handleAddCart} />
 						</Route>
 						<Route exact path='/cart'>
 							<Cart
@@ -89,7 +98,7 @@ function App() {
 							/>
 						</Route>
 						<Route expect path='/checkout'>
-							{/* <Checkout cart={cart} /> */}
+							<Checkout cart={cart} />
 						</Route>
 					</Switch>
 				</Container>

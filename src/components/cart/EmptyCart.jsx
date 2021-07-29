@@ -8,7 +8,7 @@ const EmptyCart = () => {
 	return (
 		<Typography variant='subtitle1'>
 			You dont have items in your shopping cart,
-			<Link to='/' className={classes.Link}>
+			<Link to='/products' className={classes.Link}>
 				start adding some!
 			</Link>
 		</Typography>

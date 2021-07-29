@@ -21,7 +21,7 @@ const Navbar = ({ totalItems }) => {
 				<Toolbar>
 					<Typography
 						component={Link}
-						to='/'
+						to='/products'
 						variant='h6'
 						className={classes.title}
 						color='inherit'
@@ -35,7 +35,7 @@ const Navbar = ({ totalItems }) => {
 						Cummers.js
 					</Typography>
 					<div className={classes.grow} />
-					{location.pathname === '/' && (
+					{location.pathname.includes('/products') && (
 						<div className={classes.button}>
 							<IconButton
 								component={Link}
