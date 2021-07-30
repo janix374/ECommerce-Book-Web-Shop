@@ -7,6 +7,19 @@ import useStyles from './styles';
 const Products = ({ products, onAddToCart }) => {
 	const classes = useStyles();
 
+	if (products.length === 0) {
+		return (
+			<section className={classes.content}>
+				<div className={classes.toolbar} />
+				<Grid container justifyContent='center' spacing={4}>
+					<Typography variant='h2' gutterBottom>
+						Can not load books
+					</Typography>
+				</Grid>
+			</section>
+		);
+	}
+
 	return (
 		<section className={classes.content}>
 			<div className={classes.toolbar} />

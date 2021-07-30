@@ -12,14 +12,11 @@ import Checkout from './components/checkoutForm/checkout/Checkout';
 function App() {
 	const [products, setProducts] = useState([]);
 	const [cart, setCart] = useState({});
+	const [errorProduct, setErrorsProduct] = useState(false);
 
 	const fetchProducts = async () => {
-		try {
-			const { data } = await commerce.products.list();
-			setProducts(data);
-		} catch (error) {
-			console.log(error);
-		}
+		const { data } = await commerce.products.list();
+		setProducts(data);
 	};
 
 	const fetchCart = async () => {

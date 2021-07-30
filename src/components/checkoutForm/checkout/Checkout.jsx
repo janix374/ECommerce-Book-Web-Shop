@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Paper, Stepper, Step, StepLabel, Typography } from '@material-ui/core';
+import {
+	Paper,
+	Stepper,
+	Step,
+	StepLabel,
+	Typography,
+	Box,
+} from '@material-ui/core';
+import { Alert } from '@material-ui/lab';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
 import PaymentForm from './PaymentForm';
@@ -13,6 +21,7 @@ const Checkout = ({ cart }) => {
 	const [activeStep, setActiveStep] = useState(0);
 	const [checkoutToken, setCheckoutToken] = useState(null);
 	const [shippingData, setShippingData] = useState({});
+	const [errors, setErrors] = useState(false);
 	const classes = useStyles();
 
 	useEffect(() => {
@@ -25,7 +34,7 @@ const Checkout = ({ cart }) => {
 					});
 					setCheckoutToken(token);
 				} catch (error) {
-					console.log(error);
+					setErrors(true);
 				}
 			};
 			generateToken();
@@ -72,6 +81,13 @@ const Checkout = ({ cart }) => {
 						checkoutToken && <Form />
 					)}
 				</Paper>
+				<Box mt={3}>
+					{errors && (
+						<Alert severity='error' m={5}>
+							Problem with token!
+						</Alert>
+					)}
+				</Box>
 			</main>
 		</>
 	);

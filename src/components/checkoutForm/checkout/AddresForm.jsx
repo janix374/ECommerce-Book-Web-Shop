@@ -6,10 +6,12 @@ import {
 	Button,
 	Typography,
 	Grid,
+	Box,
 } from '@material-ui/core';
 import { useForm, FormProvider } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Alert } from '@material-ui/lab';
 import { commerce } from '../../../lib/commerce';
 import FormInput from './CustomTextField';
 
@@ -21,6 +23,7 @@ const AddresForm = ({ checkoutToken, next }) => {
 	const [shippingSubdivision, setShippingSubdivision] = useState('');
 	const [shippingOptions, setShippingOptions] = useState([]);
 	const [shippingOption, setShippingOption] = useState('');
+	const [errors, setErrors] = useState(false);
 
 	/*
 	// The Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs.
@@ -53,7 +56,7 @@ const AddresForm = ({ checkoutToken, next }) => {
 			setShippingCountries(response.countries);
 			setShippingCountry(Object.keys(response.countries)[0]);
 		} catch (error) {
-			console.log(error);
+			setErrors(true);
 		}
 	};
 
@@ -65,7 +68,7 @@ const AddresForm = ({ checkoutToken, next }) => {
 			setShippingSubdivisions(response.subdivisions);
 			setShippingSubdivision(Object.keys(response.subdivisions)[0]);
 		} catch (error) {
-			console.log(error);
+			setErrors(true);
 		}
 	};
 
@@ -182,6 +185,13 @@ const AddresForm = ({ checkoutToken, next }) => {
 					</div>
 				</form>
 			</FormProvider>
+			<Box mt={3}>
+				{errors && (
+					<Alert severity='error' m={5}>
+						Problem With Shipping Countries
+					</Alert>
+				)}
+			</Box>
 		</>
 	);
 };
