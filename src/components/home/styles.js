@@ -12,7 +12,35 @@ export default makeStyles((theme) => ({
 	},
 	PictureBackground: {
 		border: '1px solid black',
-		width: '600px',
-		height: '552px',
+		maxWidth: '600px',
+		height: '80vh',
+		margin: '0px auto',
+		position: 'relative',
+		overflow: 'hidden',
+	},
+	PictureCriminalBackground: {
+		position: 'absolute',
+		top: '0px',
+		bottom: '0px',
+		[theme.breakpoints.down('sm')]: {
+			width: '100%',
+		},
+	},
+	PictureCriminal: {
+		position: 'absolute',
+		right: '0px',
+		bottom: '0px',
+		transition: '10s',
+
+		'&:hover': {
+			transform: 'scale(1.3, 1.3)',
+		},
+	},
+	BlockquoteContainer: {
+		maxWidth: '600px',
+		margin: '0px auto',
+		borderLeft: '8px solid rgba(173,163,147,.25)',
+		color: '#ada393',
+		textAlign: 'justify',
 	},
 }));

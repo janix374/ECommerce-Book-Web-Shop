@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { CssBaseline, Container } from '@material-ui/core';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { commerce } from './lib/commerce';
-
 import Products from './components/products/Products';
 import NavBar from './components/navbar/Navbar';
 import Cart from './components/cart/Cart';

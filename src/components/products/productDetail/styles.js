@@ -10,4 +10,7 @@ export default makeStyles((theme) => ({
 	DetailsImage: {
 		width: '100%',
 	},
+	Description: {
+		marginBottom: '40px',
+	},
 }));

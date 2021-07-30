@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Typography, Grid, IconButton } from '@material-ui/core';
-import { useRouteMatch } from 'react-router-dom';
+import { Typography, Grid, IconButton, Button } from '@material-ui/core';
+import { useRouteMatch, useHistory } from 'react-router-dom';
 import { AddShoppingCart } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
@@ -11,6 +11,7 @@ const ProductDetails = ({ onAddToCart }) => {
 	const match = useRouteMatch();
 	const [productsDetails, setProductsDetails] = useState({});
 	const [bookDoesNotExists, setBookDoesNotExists] = useState(false);
+	const history = useHistory();
 
 	const fetchOneProduct = async (productId) => {
 		try {
@@ -19,6 +20,13 @@ const ProductDetails = ({ onAddToCart }) => {
 		} catch (error) {
 			setBookDoesNotExists(true);
 		}
+	};
+
+	const handleGoBack = () => {
+		if (history.length > 1) {
+			history.goBack();
+		}
+		history.push('/products');
 	};
 
 	useEffect(() => {
@@ -61,27 +69,43 @@ const ProductDetails = ({ onAddToCart }) => {
 							</div>
 						</Grid>
 						<Grid item xs={12} sm={7}>
-							<Typography variant='h6'>{productsDetails.name}</Typography>
-							<Typography variant='h6' gutterBottom>
-								Price: {productsDetails.price.formatted_with_symbol}
-							</Typography>
-							<Typography variant='body1' color='textSecondary'>
-								Description
-							</Typography>
-							<Typography
-								dangerouslySetInnerHTML={{
-									__html: productsDetails.description,
-								}}
-								variant='body1'
-								color='textSecondary'
-							/>
-							<IconButton
-								arial-label='Add to Cart'
-								title='Add to Cart'
-								onClick={() => onAddToCart(productsDetails.id, 1)}
-							>
-								<AddShoppingCart />
-							</IconButton>
+							<div className={classes.Description}>
+								<Typography variant='h6'>{productsDetails.name}</Typography>
+								<Typography variant='h6' gutterBottom>
+									Price: {productsDetails.price.formatted_with_symbol}
+								</Typography>
+								<Typography variant='body1' color='textSecondary'>
+									Description
+								</Typography>
+								<Typography
+									dangerouslySetInnerHTML={{
+										__html: productsDetails.description,
+									}}
+									variant='body1'
+									color='textSecondary'
+								/>
+							</div>
+							<div className={classes.Description}>
+								<Typography variant='h6' color='textSecondary'>
+									Add to cart
+								</Typography>
+								<IconButton
+									arial-label='Add to Cart'
+									title='Add to Cart'
+									onClick={() => onAddToCart(productsDetails.id, 1)}
+								>
+									<AddShoppingCart />
+								</IconButton>
+							</div>
+							<div className={classes.Description}>
+								<Button
+									variant='contained'
+									color='primary'
+									onClick={handleGoBack}
+								>
+									Go Back
+								</Button>
+							</div>
 						</Grid>
 					</>
 				)}

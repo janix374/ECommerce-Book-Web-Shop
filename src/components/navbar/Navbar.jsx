@@ -17,7 +17,7 @@ const Navbar = ({ totalItems }) => {
 	const location = useLocation();
 	return (
 		<>
-			<AppBar position='fixed' className={classes.appBar} color='inherit'>
+			<AppBar position='fixed' className={classes.appBar} color='secondary'>
 				<Toolbar>
 					<Typography
 						component={Link}
@@ -32,7 +32,7 @@ const Navbar = ({ totalItems }) => {
 							height='25px'
 							className={classes.image}
 						/>
-						Cummers.js
+						Crime Novel Store
 					</Typography>
 					<div className={classes.grow} />
 					{location.pathname.includes('/products') && (
