@@ -1,21 +1,23 @@
 {
   "files": {
-    "main.css": "/ecommerce-book-web-shop/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/ecommerce-book-web-shop/static/js/main.8a32fcec.chunk.js",
-    "main.js.map": "/ecommerce-book-web-shop/static/js/main.8a32fcec.chunk.js.map",
+    "main.css": "/ecommerce-book-web-shop/static/css/main.5638c5c3.chunk.css",
+    "main.js": "/ecommerce-book-web-shop/static/js/main.15408189.chunk.js",
+    "main.js.map": "/ecommerce-book-web-shop/static/js/main.15408189.chunk.js.map",
     "runtime-main.js": "/ecommerce-book-web-shop/static/js/runtime-main.0f8b21ff.js",
     "runtime-main.js.map": "/ecommerce-book-web-shop/static/js/runtime-main.0f8b21ff.js.map",
-    "static/js/2.9aeb84d4.chunk.js": "/ecommerce-book-web-shop/static/js/2.9aeb84d4.chunk.js",
-    "static/js/2.9aeb84d4.chunk.js.map": "/ecommerce-book-web-shop/static/js/2.9aeb84d4.chunk.js.map",
+    "static/js/2.6c299de6.chunk.js": "/ecommerce-book-web-shop/static/js/2.6c299de6.chunk.js",
+    "static/js/2.6c299de6.chunk.js.map": "/ecommerce-book-web-shop/static/js/2.6c299de6.chunk.js.map",
     "index.html": "/ecommerce-book-web-shop/index.html",
-    "static/css/main.6dea0f05.chunk.css.map": "/ecommerce-book-web-shop/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.9aeb84d4.chunk.js.LICENSE.txt": "/ecommerce-book-web-shop/static/js/2.9aeb84d4.chunk.js.LICENSE.txt",
-    "static/media/commerce.6be6b89c.png": "/ecommerce-book-web-shop/static/media/commerce.6be6b89c.png"
+    "static/css/main.5638c5c3.chunk.css.map": "/ecommerce-book-web-shop/static/css/main.5638c5c3.chunk.css.map",
+    "static/js/2.6c299de6.chunk.js.LICENSE.txt": "/ecommerce-book-web-shop/static/js/2.6c299de6.chunk.js.LICENSE.txt",
+    "static/media/commerce.6be6b89c.png": "/ecommerce-book-web-shop/static/media/commerce.6be6b89c.png",
+    "static/media/crimescene.656a4040.jpg": "/ecommerce-book-web-shop/static/media/crimescene.656a4040.jpg",
+    "static/media/criminal.bb6cb7ca.png": "/ecommerce-book-web-shop/static/media/criminal.bb6cb7ca.png"
   },
   "entrypoints": [
     "static/js/runtime-main.0f8b21ff.js",
-    "static/js/2.9aeb84d4.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.8a32fcec.chunk.js"
+    "static/js/2.6c299de6.chunk.js",
+    "static/css/main.5638c5c3.chunk.css",
+    "static/js/main.15408189.chunk.js"
   ]
 }
