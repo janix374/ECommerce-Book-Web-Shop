@@ -21,7 +21,6 @@ const Product = ({ product, onAddToCart }) => {
 		<Card className={classes.root}>
 			<Link to={`/products/${product.id}`}>
 				<CardMedia
-					component='img'
 					className={classes.media}
 					image={product.media.source}
 					title={product.name}

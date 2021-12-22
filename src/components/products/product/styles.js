@@ -2,13 +2,12 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
 	root: {
-		maxWidth: '100%',
-		minHeight: '500px',
-		overflow: 'hidden',
+		maxWidth: '400px',
+		minHeight: '550px',
+		// overflow: 'hidden',
 	},
 	media: {
-		// height: '200px',
-		paddingTop: '100%',
+		height: '400px',
 	},
 	cardContent: {
 		display: 'block',

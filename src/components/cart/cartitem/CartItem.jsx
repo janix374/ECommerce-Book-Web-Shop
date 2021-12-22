@@ -8,20 +8,23 @@ import {
 	CardMedia,
 	Button,
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import useStyles from './styles';
 
 const CartItem = ({ item, onRemoveFromCart, onUpdateCartQty }) => {
 	const classes = useStyles();
 	return (
-		<Card>
-			<CardMedia
-				image={item.media.source}
-				alt={item.name}
-				className={classes.media}
-			/>
+		<Card className={classes.cardClass}>
+			<Link to={`/products/${item.product_id}`}>
+				<CardMedia
+					image={item.media.source}
+					alt={item.name}
+					className={classes.media}
+				/>
+			</Link>
 			<CardContent className={classes.cardContent}>
-				<Typography variant='h4'>{item.name}</Typography>
-				<Typography variant='h5'>
+				<Typography variant='h5'>{item.name}</Typography>
+				<Typography variant='h6'>
 					{item.line_total.formatted_with_symbol}
 				</Typography>
 			</CardContent>

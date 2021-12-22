@@ -5,7 +5,7 @@ export default makeStyles(() => ({
 		height: 260,
 	},
 	cardContent: {
-		display: 'flex',
+		display: 'block',
 		justifyContent: 'space-between',
 	},
 	cartActions: {
@@ -14,5 +14,8 @@ export default makeStyles(() => ({
 	buttons: {
 		display: 'flex',
 		alignItems: 'center',
+	},
+	cardClass: {
+		minHeight: '450px',
 	},
 }));

@@ -15,3 +15,21 @@ code {
 .app {
   background-color: '#4e342e';
 }
+
+
+/*Navigation bar*/
+.navigationbar a{
+  text-decoration: none;
+}
+
+.navigationbar a:hover{
+  text-decoration: underline;
+}
+
+
+
+/*Home component*/
+.container {
+  padding-top: 100px;
+}
+
