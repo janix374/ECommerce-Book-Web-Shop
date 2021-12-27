@@ -1,31 +1,13 @@
 import React, { Children } from 'react';
-import { Grid, Typography } from '@mui/material';
+import { Grid, Container } from '@mui/material';
 import PropTypes from 'prop-types';
 import { Outlet } from 'react-router-dom';
-import Privremana from '../privremena/Privremana';
 import CategoryNavBar from '../navbars/category/CategoryNavBar';
-// import Product from './product/Product';
-// import useStyles from './styles';
 
 const Products = ({ products, onAddToCart, title, category }) => {
-	// const classes = useStyles();
-
-	// if (products.length === 0) {
-	// 	return (
-	// 		<section className={classes.content}>
-	// 			<div className={classes.toolbar} />
-	// 			<Grid container justifyContent='center' spacing={4}>
-	// 				<Typography variant='h2' gutterBottom>
-	// 					Can not load books
-	// 				</Typography>
-	// 			</Grid>
-	// 		</section>
-	// 	);
-	// }
-
-	console.log('product');
+	console.log('products');
 	return (
-		<section>
+		<Container maxWidth='lg'>
 			<Grid container spacing={2}>
 				<Grid item xs={12} sm={2}>
 					<CategoryNavBar category={category} />
@@ -34,7 +16,7 @@ const Products = ({ products, onAddToCart, title, category }) => {
 					<Outlet />
 				</Grid>
 			</Grid>
-		</section>
+		</Container>
 	);
 	// return (
 	// 	<section>

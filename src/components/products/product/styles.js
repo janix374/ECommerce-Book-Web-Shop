@@ -1,24 +1,29 @@
-import { makeStyles } from '@material-ui/core/styles';
+const imageStayle = {
+	display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'center',
+	paddingTop: '5px',
+	paddingBottom: '5px',
+	a: {
+		textAlign: 'center',
+	},
+	img: {
+		width: '80%',
+		haigh: 'auto',
+	},
+};
 
-export default makeStyles(() => ({
-	root: {
-		maxWidth: '400px',
-		minHeight: '550px',
-		// overflow: 'hidden',
-	},
-	media: {
-		height: '400px',
-	},
-	cardContent: {
-		display: 'block',
-		// justifyContent: 'space-between',
-	},
-	CardActions: {
-		display: 'flex',
-		justifyContent: 'flex-end',
-	},
-	cardContentDescription: {
-		height: '100px',
-		overflow: 'hidden',
-	},
-}));
+const cardStyle = {
+	width: '200',
+	marginTop: '20px',
+};
+
+const productName = {
+	fontWeight: 600,
+};
+
+const buttonStyle = {
+	margin: '0 auto',
+};
+
+export { imageStayle, cardStyle, productName, buttonStyle };

@@ -11,18 +11,15 @@ import {
 	// Checkout,
 	Home,
 	PdoductsByCategory,
+	Footer,
+	About,
+	Policy,
 } from './components/index';
 import 'react-notifications-component/dist/theme.css';
 
 function App() {
-	const [products, setProducts] = useState([]);
 	const [cart, setCart] = useState({});
 	const [category, setCategory] = useState([]);
-
-	const fetchProducts = async () => {
-		const { data } = await commerce.products.list();
-		setProducts(data);
-	};
 
 	const fetchategory = async () => {
 		const { data } = await commerce.categories.list();
@@ -87,12 +84,10 @@ function App() {
 	};
 
 	useEffect(() => {
-		fetchProducts();
 		fetchCart();
 		fetchategory();
 	}, []);
 
-	console.log(category);
 	// <Router basename='/crimenovel'>
 	return (
 		<Router>
@@ -103,11 +98,12 @@ function App() {
 					{/* <ReactNotification /> */}
 					<Routes>
 						<Route path='/' element={<Home />} />
+						<Route path='about' element={<About />} />
+						<Route path='policy' element={<Policy />} />
 						<Route
 							path='products'
 							element={
 								<Products
-									products={products}
 									onAddToCart={handleAddCart}
 									category={category}
 									title='products'
@@ -116,44 +112,47 @@ function App() {
 						>
 							<Route
 								path='mystery'
-								element={<PdoductsByCategory title='mystery' />}
+								element={<PdoductsByCategory title='mystery' path='mystery' />}
 							/>
 							<Route
 								path='fantasy'
-								element={<PdoductsByCategory title='fantasy' />}
+								element={
+									<PdoductsByCategory
+										title='Fantasy and Fiction'
+										path='fantasy'
+									/>
+								}
 							/>
 							<Route
 								path='historical'
-								element={<PdoductsByCategory title='historical' />}
+								element={
+									<PdoductsByCategory title='historical' path='historical' />
+								}
 							/>
 							<Route
 								path='horror'
-								element={<PdoductsByCategory title='horror' />}
+								element={<PdoductsByCategory title='horror' path='horror' />}
 							/>
 							<Route
 								path='romance'
-								element={<PdoductsByCategory title='romance' />}
+								element={<PdoductsByCategory title='romance' path='romance' />}
 							/>
-							<Route path='sf' element={<PdoductsByCategory title='sf' />} />
+							<Route
+								path='sf'
+								element={<PdoductsByCategory title='sf' path='sf' />}
+							/>
 							<Route
 								path='biographies'
-								element={<PdoductsByCategory title='biographies' />}
+								element={
+									<PdoductsByCategory title='biographies' path='biographies' />
+								}
 							/>
 							<Route
 								path='cookbooks'
-								element={<PdoductsByCategory title='cookbooks' />}
-							/>
-							{/* <Route
-								path='/fantasy'
 								element={
-									<Products
-										products={products}
-										onAddToCart={handleAddCart}
-										title='fantasy'
-									/>
+									<PdoductsByCategory title='cookbooks' path='cookbooks' />
 								}
-							/> */}
-							{/* <Route path='/crime' element={<Products products={products} onAddToCart={handleAddCart} />}> */}
+							/>
 						</Route>
 						{/* <Route expect path='/products/:id'>
 							<ProductDetails onAddToCart={handleAddCart} />
@@ -171,9 +170,22 @@ function App() {
 						</Route> */}
 					</Routes>
 				</Container>
+				<Footer />
 			</div>
 		</Router>
 	);
 }
 
 export default App;
+
+/* <Route
+								path='/fantasy'
+								element={
+									<Products
+										products={products}
+										onAddToCart={handleAddCart}
+										title='fantasy'
+									/>
+								}
+							/> */
+/* <Route path='/crime' element={<Products products={products} onAddToCart={handleAddCart} />}> */

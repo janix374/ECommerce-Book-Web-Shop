@@ -30,7 +30,7 @@ const homeCategory = [
 		},
 		backgroundimg: backfantasy,
 		frontimg: frontfantasy,
-		title: 'Fantasy',
+		title: 'Fantasy and Fiction',
 		path: 'fantasy',
 	},
 	{

@@ -1,20 +1,28 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Badge } from '@mui/material';
+import {
+	AppBar,
+	Toolbar,
+	IconButton,
+	Typography,
+	Badge,
+	Grid,
+} from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import PropTypes from 'prop-types';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { appBarStayle } from './styles';
 
-const Navbar = ({ totalItems }) => {
-	const location = useLocation();
-	return (
-		<>
-			<AppBar position='fixed' color='secondary' sx={appBarStayle}>
-				<Toolbar>
-					<Typography component={Link} to='/' variant='h6' color='inherit'>
-						Home
-					</Typography>
-					{location.pathname.includes('/products') && (
+const Navbar = ({ totalItems }) => (
+	<>
+		<AppBar position='fixed' color='secondary' sx={appBarStayle}>
+			<Toolbar>
+				<Grid justifyContent='space-between' container spacing={12}>
+					<Grid item>
+						<Typography component={Link} to='/' variant='h6' color='inherit'>
+							Home
+						</Typography>
+					</Grid>
+					<Grid item>
 						<div>
 							<IconButton
 								component={Link}
@@ -27,12 +35,12 @@ const Navbar = ({ totalItems }) => {
 								</Badge>
 							</IconButton>
 						</div>
-					)}
-				</Toolbar>
-			</AppBar>
-		</>
-	);
-};
+					</Grid>
+				</Grid>
+			</Toolbar>
+		</AppBar>
+	</>
+);
 
 Navbar.propTypes = {
 	totalItems: PropTypes.number,

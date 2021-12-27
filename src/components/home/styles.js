@@ -1,9 +1,13 @@
-import { styled } from '@mui/system';
-
-const homeTitle = {
-	margin: '0px auto',
-	borderLeft: '8px solid rgba(173,163,147,.25)',
-	textAlign: 'justify',
+const sectionStyle = {
+	marginTop: '60px',
+	marginBottom: '20px',
 };
 
-export { homeTitle };
+const sectionStyleCategory = {
+	borderTop: '2px solid #ececec',
+	borderBottom: '2px solid #ececec',
+	marginTop: '60px',
+	marginBottom: '20px',
+};
+
+export { sectionStyle, sectionStyleCategory };

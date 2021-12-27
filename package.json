@@ -21,6 +21,7 @@
     "react-notifications-component": "^3.1.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "4.0.3",
+    "react-use-clipboard": "1.0.7",
     "web-vitals": "^1.0.1"
   },
   "homepage": "https://janix374.github.io/ecommerce-book-web-shop/",

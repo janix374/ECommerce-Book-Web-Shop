@@ -2,65 +2,46 @@ import React from 'react';
 import {
 	Card,
 	CardContent,
-	CardMedia,
 	CardActions,
 	Typography,
-	IconButton,
-} from '@material-ui/core';
-import { AddShoppingCart } from '@material-ui/icons';
-import ImportContactsIcon from '@material-ui/icons/ImportContacts';
+	Button,
+	Box,
+} from '@mui/material';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { imageStayle, cardStyle, productName, buttonStyle } from './styles';
 
-import useStyles from './styles';
-
-const Product = ({ product, onAddToCart }) => {
-	const classes = useStyles();
-
-	return (
-		<Card className={classes.root}>
+const Product = ({ product, onAddToCart }) => (
+	<Card sx={cardStyle}>
+		<Box compnent='div' sx={imageStayle}>
 			<Link to={`/products/${product.id}`}>
-				<CardMedia
-					component='img'
-					className={classes.media}
-					image={product.media.source}
-					title={product.name}
-				/>
+				<img src={product.image.url} alt='sise' />
 			</Link>
-			<CardContent>
-				<div className={classes.cardContent}>
-					<Typography variant='h6' gutterBottom>
-						{product.name}
-					</Typography>
-					<Typography variant='h6'>
-						{product.price.formatted_with_symbol}
-					</Typography>
-				</div>
-				{/* <div className={classes.cardContentDescription}>
-					<Typography
-						dangerouslySetInnerHTML={{ __html: product.description }}
-						variant='body2'
-						color='textSecondary'
-					/>
-				</div> */}
-			</CardContent>
-			<CardActions disableSpacing className={classes.CardActions}>
-				<IconButton arial-label='details' title='Details'>
-					<Link to={`/products/${product.id}`}>
-						<ImportContactsIcon />
-					</Link>
-				</IconButton>
-				<IconButton
-					arial-label='Add to Cart'
-					title='Add to Cart'
-					onClick={() => onAddToCart(product.id, 1)}
-				>
-					<AddShoppingCart />
-				</IconButton>
-			</CardActions>
-		</Card>
-	);
-};
+		</Box>
+		<CardContent>
+			<Typography
+				variant='body1'
+				component='p'
+				style={productName}
+				gutterBottom
+			>
+				{product.name}
+			</Typography>
+			<Typography variant='body1' component='p'>
+				price: {product.price.formatted_with_symbol}
+			</Typography>
+		</CardContent>
+		<CardActions>
+			<Button
+				variant='contained'
+				sx={buttonStyle}
+				onClick={() => onAddToCart(product.id, 1)}
+			>
+				Add to Cart
+			</Button>
+		</CardActions>
+	</Card>
+);
 
 Product.propTypes = {
 	product: PropTypes.oneOfType([PropTypes.object]).isRequired,
