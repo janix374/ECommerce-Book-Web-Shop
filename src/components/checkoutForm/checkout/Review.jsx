@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, List, ListItem, ListItemText } from '@material-ui/core';
+import { Typography, List, ListItem, ListItemText } from '@mui/material';
 import PropTypes from 'prop-types';
 
 const Review = ({ checkoutToken }) => (

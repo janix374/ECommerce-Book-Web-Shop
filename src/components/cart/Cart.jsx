@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Typography } from '@material-ui/core';
-import useStyles from './styles';
+import { Container, Typography, Box } from '@mui/material';
 import EmptyCart from './EmptyCart';
 import FilledCart from './FilledCart';
+import GoBackButton from '../common/goback/GoBackButton';
 
 const Cart = ({
 	cart,
@@ -11,14 +11,12 @@ const Cart = ({
 	handleRemoveFromCart,
 	handleEmptyCart,
 }) => {
-	const classes = useStyles();
-
 	if (!cart.line_items) return 'Loading...';
 
 	return (
 		<Container>
-			<div className={classes.toolbar} />
-			<Typography className={classes.title} variant='h3' gutterBottom>
+			<div />
+			<Typography variant='h4' component='h4' gutterBottom>
 				Your Shopping Cart
 			</Typography>
 			{!cart.line_items.length ? (
@@ -31,6 +29,9 @@ const Cart = ({
 					handleRemoveFromCart={handleRemoveFromCart}
 				/>
 			)}
+			<Box mt={5}>
+				<GoBackButton />
+			</Box>
 		</Container>
 	);
 };

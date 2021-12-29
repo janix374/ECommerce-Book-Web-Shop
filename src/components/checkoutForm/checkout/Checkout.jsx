@@ -6,10 +6,9 @@ import {
 	StepLabel,
 	Typography,
 	Box,
-} from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
+	Alert,
+} from '@mui/material';
 import PropTypes from 'prop-types';
-import useStyles from './styles';
 import PaymentForm from './PaymentForm';
 import Confirmation from '../confirmation/Confirmation';
 import AddresForm from './AddresForm';
@@ -22,10 +21,8 @@ const Checkout = ({ cart }) => {
 	const [checkoutToken, setCheckoutToken] = useState(null);
 	const [shippingData, setShippingData] = useState({});
 	const [errors, setErrors] = useState(false);
-	const classes = useStyles();
 
 	useEffect(() => {
-		// create checkoutToken
 		if (cart.id) {
 			const generateToken = async () => {
 				try {
@@ -62,13 +59,13 @@ const Checkout = ({ cart }) => {
 
 	return (
 		<>
-			<div className={classes.toolbar} />
-			<main className={classes.layout}>
-				<Paper className={classes.paper}>
+			<div />
+			<main>
+				<Paper>
 					<Typography variant='h4' algin='center'>
 						Checkout
 					</Typography>
-					<Stepper activeStep={activeStep} className={classes.Stepper}>
+					<Stepper activeStep={activeStep}>
 						{steps.map((step) => (
 							<Step key={step}>
 								<StepLabel>{step}</StepLabel>

@@ -1,13 +1,12 @@
 const styleBox1 = {
-	width: '250px',
-	height: '250px',
+	width: '230px',
+	height: '355px',
 	backgroundColor: 'primary.dark',
 	backgroundRepeat: 'no-repeat',
 	backgroundSize: 'cover',
 	margin: '0px auto',
 	position: 'relative',
 	overflow: 'hidden',
-	borderRadius: '10%',
 };
 
 const styleBox2 = {

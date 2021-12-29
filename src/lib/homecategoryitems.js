@@ -3,19 +3,22 @@ import frontcrime from '../assets/images/frontcrime.png';
 import backfantasy from '../assets/images/backfantasy.jpg';
 import frontfantasy from '../assets/images/frontfantasy.png';
 import backhistorical from '../assets/images/backhistorical.jpg';
+import fronthistory from '../assets/images/fronthistory.png';
 import fronthorror from '../assets/images/fronthorror.png';
 import backhorror from '../assets/images/backhorror.jpg';
 import frontromance from '../assets/images/frontromance.png';
 import backromance from '../assets/images/backromance.jpg';
 import backbio from '../assets/images/backbio.jpg';
 import backcookbooks from '../assets/images/backcookbooks.jpg';
+import froncookbook from '../assets/images/froncookbook.png';
+import frontbiography from '../assets/images/frontbiography.png';
 
 const homeCategory = [
 	{
 		id: 1,
 		styleComponen: {
-			left: '100px',
-			bottom: '50px',
+			left: '12px',
+			bottom: '-5px',
 		},
 		backgroundimg: backcrime,
 		frontimg: frontcrime,
@@ -25,8 +28,8 @@ const homeCategory = [
 	{
 		id: 2,
 		styleComponen: {
-			left: '35px',
-			bottom: '-5px',
+			right: '18px',
+			top: '118px',
 		},
 		backgroundimg: backfantasy,
 		frontimg: frontfantasy,
@@ -36,18 +39,19 @@ const homeCategory = [
 	{
 		id: 3,
 		styleComponen: {
-			top: '0px',
+			top: '33px',
+			left: '7px',
 		},
 		backgroundimg: backhistorical,
-		frontimg: '',
+		frontimg: fronthistory,
 		title: 'Historical',
 		path: 'historical',
 	},
 	{
 		id: 4,
 		styleComponen: {
-			left: '45px',
-			bottom: '13px',
+			right: '10px',
+			top: '140px',
 		},
 		backgroundimg: backhorror,
 		frontimg: fronthorror,
@@ -57,8 +61,8 @@ const homeCategory = [
 	{
 		id: 5,
 		styleComponen: {
-			left: '71px',
-			top: '52px',
+			left: '40px',
+			bottom: '8px',
 		},
 		backgroundimg: backromance,
 		frontimg: frontromance,
@@ -68,20 +72,22 @@ const homeCategory = [
 	{
 		id: 6,
 		styleComponen: {
-			top: '0px',
+			bottom: '10px',
+			right: '8px',
 		},
 		backgroundimg: backbio,
-		frontimg: '',
+		frontimg: frontbiography,
 		title: 'Biographies',
 		path: 'biographies',
 	},
 	{
 		id: 7,
 		styleComponen: {
-			top: '0px',
+			bottom: '37px',
+			left: '20px',
 		},
 		backgroundimg: backcookbooks,
-		frontimg: '',
+		frontimg: froncookbook,
 		title: 'Cookbooks',
 		path: 'cookbooks',
 	},

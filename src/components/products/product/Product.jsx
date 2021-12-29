@@ -14,8 +14,8 @@ import { imageStayle, cardStyle, productName, buttonStyle } from './styles';
 const Product = ({ product, onAddToCart }) => (
 	<Card sx={cardStyle}>
 		<Box compnent='div' sx={imageStayle}>
-			<Link to={`/products/${product.id}`}>
-				<img src={product.image.url} alt='sise' />
+			<Link to={`/product/${product.id}`}>
+				<img src={product?.image.url} alt='sise' />
 			</Link>
 		</Box>
 		<CardContent>
@@ -28,7 +28,7 @@ const Product = ({ product, onAddToCart }) => (
 				{product.name}
 			</Typography>
 			<Typography variant='body1' component='p'>
-				price: {product.price.formatted_with_symbol}
+				price: {product?.price.formatted_with_symbol}
 			</Typography>
 		</CardContent>
 		<CardActions>
@@ -36,6 +36,7 @@ const Product = ({ product, onAddToCart }) => (
 				variant='contained'
 				sx={buttonStyle}
 				onClick={() => onAddToCart(product.id, 1)}
+				disabled={product.is.sold_out}
 			>
 				Add to Cart
 			</Button>

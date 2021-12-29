@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react';
 import { CssBaseline, Container } from '@mui/material';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import ReactNotification, { store } from 'react-notifications-component';
 import { commerce } from './lib/commerce';
 import {
-	// Cart,
-	// ProductDetails,
+	Cart,
+	ProductDetails,
 	NavBar,
 	Products,
-	// Checkout,
+	Checkout,
 	Home,
-	PdoductsByCategory,
+	ProductsByCategory,
 	Footer,
 	About,
 	Policy,
+	NoProducts,
+	ScrollToTop,
+	NotFound,
 } from './components/index';
 import 'react-notifications-component/dist/theme.css';
 
@@ -88,36 +91,38 @@ function App() {
 		fetchategory();
 	}, []);
 
-	// <Router basename='/crimenovel'>
 	return (
 		<Router>
 			<div>
 				<CssBaseline />
+				<ScrollToTop />
 				<NavBar totalItems={cart.total_items} />
 				<Container className='container'>
-					{/* <ReactNotification /> */}
+					<ReactNotification />
 					<Routes>
 						<Route path='/' element={<Home />} />
 						<Route path='about' element={<About />} />
 						<Route path='policy' element={<Policy />} />
 						<Route
 							path='products'
-							element={
-								<Products
-									onAddToCart={handleAddCart}
-									category={category}
-									title='products'
-								/>
-							}
+							element={<Products category={category} title='products' />}
 						>
+							<Route path='' element={<NoProducts />} />
 							<Route
 								path='mystery'
-								element={<PdoductsByCategory title='mystery' path='mystery' />}
+								element={
+									<ProductsByCategory
+										onAddToCart={handleAddCart}
+										title='Detective and Mystery'
+										path='mystery'
+									/>
+								}
 							/>
 							<Route
 								path='fantasy'
 								element={
-									<PdoductsByCategory
+									<ProductsByCategory
+										onAddToCart={handleAddCart}
 										title='Fantasy and Fiction'
 										path='fantasy'
 									/>
@@ -126,48 +131,71 @@ function App() {
 							<Route
 								path='historical'
 								element={
-									<PdoductsByCategory title='historical' path='historical' />
+									<ProductsByCategory
+										onAddToCart={handleAddCart}
+										title='Historical'
+										path='historical'
+									/>
 								}
 							/>
 							<Route
 								path='horror'
-								element={<PdoductsByCategory title='horror' path='horror' />}
+								element={
+									<ProductsByCategory
+										onAddToCart={handleAddCart}
+										title='Horror'
+										path='horror'
+									/>
+								}
 							/>
 							<Route
 								path='romance'
-								element={<PdoductsByCategory title='romance' path='romance' />}
-							/>
-							<Route
-								path='sf'
-								element={<PdoductsByCategory title='sf' path='sf' />}
+								element={
+									<ProductsByCategory
+										onAddToCart={handleAddCart}
+										title='Romance'
+										path='romance'
+									/>
+								}
 							/>
 							<Route
 								path='biographies'
 								element={
-									<PdoductsByCategory title='biographies' path='biographies' />
+									<ProductsByCategory
+										onAddToCart={handleAddCart}
+										title='Biographies'
+										path='biographies'
+									/>
 								}
 							/>
 							<Route
 								path='cookbooks'
 								element={
-									<PdoductsByCategory title='cookbooks' path='cookbooks' />
+									<ProductsByCategory
+										onAddToCart={handleAddCart}
+										title='Cookbooks'
+										path='cookbooks'
+									/>
 								}
 							/>
 						</Route>
-						{/* <Route expect path='/products/:id'>
-							<ProductDetails onAddToCart={handleAddCart} />
-						</Route>
-						<Route exact path='/cart'>
-							<Cart
-								cart={cart}
-								handleUpdateCartQty={handleUpdateCartQty}
-								handleRemoveFromCart={handleRemoveFromCart}
-								handleEmptyCart={handleEmptyCart}
-							/>
-						</Route>
-						<Route expect path='/checkout'>
-							<Checkout cart={cart} />
-						</Route> */}
+						<Route
+							path='product/:id'
+							element={<ProductDetails onAddToCart={handleAddCart} />}
+						/>
+						<Route
+							path='cart'
+							element={
+								<Cart
+									cart={cart}
+									handleUpdateCartQty={handleUpdateCartQty}
+									handleRemoveFromCart={handleRemoveFromCart}
+									handleEmptyCart={handleEmptyCart}
+								/>
+							}
+						/>
+						<Route path='checkout' element={<Checkout cart={cart} />} />
+						<Route path='*' element={<NotFound />} />
 					</Routes>
 				</Container>
 				<Footer />
@@ -177,15 +205,3 @@ function App() {
 }
 
 export default App;
-
-/* <Route
-								path='/fantasy'
-								element={
-									<Products
-										products={products}
-										onAddToCart={handleAddCart}
-										title='fantasy'
-									/>
-								}
-							/> */
-/* <Route path='/crime' element={<Products products={products} onAddToCart={handleAddCart} />}> */

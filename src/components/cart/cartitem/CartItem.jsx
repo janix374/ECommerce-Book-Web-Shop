@@ -7,30 +7,95 @@ import {
 	CardContent,
 	CardMedia,
 	Button,
-} from '@material-ui/core';
+	Box,
+} from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import { Link } from 'react-router-dom';
-import useStyles from './styles';
+import {
+	pictureContainer,
+	cardContentStyle,
+	addItemsContainer,
+} from './styles';
 
-const CartItem = ({ item, onRemoveFromCart, onUpdateCartQty }) => {
-	const classes = useStyles();
-	return (
-		<Card className={classes.cardClass}>
-			<Link to={`/products/${item.product_id}`}>
-				<CardMedia
-					image={item.media.source}
-					alt={item.name}
-					className={classes.media}
-				/>
+const CartItem = ({ item, onRemoveFromCart, onUpdateCartQty }) => (
+	<Card>
+		<Box component='div' sx={pictureContainer}>
+			<Link to={`/product/${item?.product_id}`}>
+				<img src={item?.media.source} alt={item.name} />
 			</Link>
-			<CardContent className={classes.cardContent}>
-				<Typography variant='h5'>{item.name}</Typography>
-				<Typography variant='h6'>
-					{item.line_total.formatted_with_symbol}
-				</Typography>
-			</CardContent>
-			<CardActions className={classes.CardAction}>
-				<div className={classes.buttons}>
-					{/* //Upamtiti callback funkciju zovemo kada imamo neki argument da ubacimo */}
+		</Box>
+		<CardContent sx={cardContentStyle}>
+			<Typography variant='p'>{item.name}</Typography>
+			<br />
+			<Typography variant='p'>
+				{item.line_total.formatted_with_symbol}
+			</Typography>
+		</CardContent>
+		<CardActions
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+			}}
+		>
+			<Box component='div' sx={addItemsContainer}>
+				<Button
+					type='button'
+					size='small'
+					onClick={() => onUpdateCartQty(item.id, item.quantity - 1)}
+				>
+					<RemoveIcon />
+				</Button>
+				<Typography>{item.quantity}</Typography>
+				<Button
+					type='button'
+					size='small'
+					onClick={() => onUpdateCartQty(item.id, item.quantity + 1)}
+				>
+					<AddIcon />
+				</Button>
+			</Box>
+			<Box component='div'>
+				<Button
+					variant='contained'
+					type='button'
+					color='secondary'
+					onClick={() => onRemoveFromCart(item.id)}
+				>
+					Remove
+				</Button>
+			</Box>
+		</CardActions>
+	</Card>
+);
+
+CartItem.propTypes = {
+	item: PropTypes.oneOfType([PropTypes.object]).isRequired,
+	onRemoveFromCart: PropTypes.func.isRequired,
+	onUpdateCartQty: PropTypes.func.isRequired,
+};
+
+export default CartItem;
+
+// eslint-disable-next-line no-lone-blocks
+{
+	/* <Box sx={cardItemContainer}>
+				<Box sx={{ width: '50px' }}>
+					<Link to={`/product/${item.id}`}>
+						<img src={item?.media.source} alt={item.name} />
+					</Link>
+					<p>fdfdfd</p>
+				</Box>
+				<CardContent sx={cardContentStyle}>
+					<Typography variant='p'>{item.name}</Typography>
+					<br />
+					<Typography variant='p'>
+						{item.line_total.formatted_with_symbol}
+					</Typography>
+				</CardContent>
+			</Box>
+			<CardActions>
+				<Box>
 					<Button
 						type='button'
 						size='small'
@@ -46,7 +111,7 @@ const CartItem = ({ item, onRemoveFromCart, onUpdateCartQty }) => {
 					>
 						+
 					</Button>
-				</div>
+				</Box>
 				<Button
 					variant='contained'
 					type='button'
@@ -56,14 +121,5 @@ const CartItem = ({ item, onRemoveFromCart, onUpdateCartQty }) => {
 					Remove
 				</Button>
 			</CardActions>
-		</Card>
-	);
-};
-
-CartItem.propTypes = {
-	item: PropTypes.oneOfType([PropTypes.object]).isRequired,
-	onRemoveFromCart: PropTypes.func.isRequired,
-	onUpdateCartQty: PropTypes.func.isRequired,
-};
-
-export default CartItem;
+*/
+}

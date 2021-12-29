@@ -19,6 +19,7 @@ const cardStyle = {
 };
 
 const productName = {
+	height: '50px',
 	fontWeight: 600,
 };
 

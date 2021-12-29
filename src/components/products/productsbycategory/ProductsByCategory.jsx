@@ -1,34 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Typography } from '@mui/material';
-import { useParams } from 'react-router-dom';
 import { commerce } from '../../../lib/commerce';
 import Product from '../product/Product';
 
-const PdoductsByCategory = ({ onAddToCart, title, path }) => {
+const ProductsByCategory = ({ onAddToCart, title, path }) => {
 	const [products, setProducts] = useState([]);
 	const [errorProductsByCategory, setErrorProductsByCategory] = useState(false);
-	const params = useParams();
+	const [loading, setLoading] = useState(false);
 
 	const fetchProducts = async () => {
+		setLoading(true);
+		setProducts([]);
 		try {
 			const { data } = await commerce.products.list({
 				category_slug: [path],
 			});
 			setProducts(data);
+			setLoading(false);
 		} catch (error) {
 			setErrorProductsByCategory(true);
 		}
 	};
 
 	useEffect(() => {
+		let mounted = true;
 		fetchProducts();
+		return () => {
+			mounted = false;
+		};
 	}, [path]);
 
 	if (errorProductsByCategory) {
 		return <div>no data</div>;
 	}
-	console.log(products);
+
+	if (loading) {
+		return <div>Loading...</div>;
+	}
+
 	return (
 		<Grid container spacing={3}>
 			<Grid item xs={12}>
@@ -46,10 +56,10 @@ const PdoductsByCategory = ({ onAddToCart, title, path }) => {
 	);
 };
 
-PdoductsByCategory.propTypes = {
+ProductsByCategory.propTypes = {
 	onAddToCart: PropTypes.func.isRequired,
 	title: PropTypes.string.isRequired,
 	path: PropTypes.string.isRequired,
 };
 
-export default PdoductsByCategory;
+export default ProductsByCategory;

@@ -1,6 +1,7 @@
 # E-commerc book store
 
-commerce back
+Online book shop using react in frontend and commercejs as backend.
+
 
 ### Installation
 
@@ -20,3 +21,9 @@ npm start
 ```
 npm build
 ``` 
+
+
+![](screenshots/pics1.jpg)
+
+![](screenshots/pics2.jpg)
+

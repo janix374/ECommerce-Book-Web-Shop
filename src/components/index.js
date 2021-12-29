@@ -1,10 +1,13 @@
 export { default as Home } from './home/Home';
 export { default as NavBar } from './navbars/main/Navbar';
 export { default as Products } from './products/Products';
-// export { default as Cart } from './cart/Cart';
-// export { default as Checkout } from './checkoutForm/checkout/Checkout';
-// export { default as ProductDetails } from './products/productDetail/ProductDetails';
-export { default as PdoductsByCategory } from './products/productsbycategory/PdoductsByCategory';
-export { default as Footer } from './footer/Footer';
+export { default as Cart } from './cart/Cart';
+export { default as Checkout } from './checkoutForm/checkout/Checkout';
+export { default as ProductsByCategory } from './products/productsbycategory/ProductsByCategory';
+export { default as NoProducts } from './products/noproduct/NoProducts';
+export { default as ProductDetails } from './products/productdetail/ProductDetails';
 export { default as About } from './about/About';
 export { default as Policy } from './policy/Policy';
+export { default as Footer } from './footer/Footer';
+export { default as ScrollToTop } from './scrolltotop/ScrollToTop';
+export { default as NotFound } from './notfound/NotFound';

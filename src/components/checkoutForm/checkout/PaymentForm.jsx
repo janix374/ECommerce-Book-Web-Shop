@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-	Paper,
-	Stepper,
-	Step,
-	StepLabel,
-	Typography,
-	CircularProgress,
-	Divider,
-	Button,
-} from '@material-ui/core';
+import { Typography, Divider, Button } from '@mui/material';
 import {
 	Elements,
 	CardElement,

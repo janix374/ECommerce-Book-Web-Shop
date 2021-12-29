@@ -7,11 +7,11 @@ import {
 	Typography,
 	Grid,
 	Box,
-} from '@material-ui/core';
+	Alert,
+} from '@mui/material';
 import { useForm, FormProvider } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Alert } from '@material-ui/lab';
 import { commerce } from '../../../lib/commerce';
 import FormInput from './CustomTextField';
 
@@ -25,11 +25,6 @@ const AddresForm = ({ checkoutToken, next }) => {
 	const [shippingOption, setShippingOption] = useState('');
 	const [errors, setErrors] = useState(false);
 
-	/*
-	// The Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs.
-	// Object.entries(shippingCountries) convert from object to array, than, through the map, it turns into a normal arry
-	// and destructuring array [code, name] give as value to object property.
-	*/
 	const countries = Object.entries(shippingCountries).map(([code, name]) => ({
 		id: code,
 		label: name,
@@ -41,12 +36,6 @@ const AddresForm = ({ checkoutToken, next }) => {
 			label: name,
 		})
 	);
-
-	// SO - shipping options
-	// const options = shippingOptions.map((SO) => ({
-	// 	id: SO.id,
-	// 	label: `${SO.description}-(${SO.price.formatted_with_symbol})`,
-	// }));
 
 	const fetchShippingCountries = async (checkoutTokenId) => {
 		try {
@@ -72,24 +61,6 @@ const AddresForm = ({ checkoutToken, next }) => {
 		}
 	};
 
-	// const fetchShippingOptions = async (
-	// 	checkoutTokenId,
-	// 	country,
-	// 	region = null
-	// ) => {
-	// 	try {
-	// 		const getoptions = await commerce.checkout.getShippingOptions(
-	// 			checkoutTokenId,
-	// 			{ country, region }
-	// 		);
-	// 		console.log(getoptions);
-	// 		// setShippingOptions(getoptions);
-	// 		// setShippingOption(getoptions[0].id);
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	}
-	// };
-
 	useEffect(() => {
 		if (checkoutToken !== null) {
 			fetchShippingCountries(checkoutToken.id);
@@ -97,16 +68,14 @@ const AddresForm = ({ checkoutToken, next }) => {
 	}, []);
 
 	useEffect(() => {
+		let mounted = true;
 		if (shippingCountry) {
 			fetchSubdivisions(shippingCountry);
 		}
+		return () => {
+			mounted = false;
+		};
 	}, [shippingCountry]);
-
-	// useEffect(() => {
-	// 	if (shippingSubdivision) {
-	// 		fetchShippingOptions(checkoutToken.id, 'US', 'CA');
-	// 	}
-	// }, [shippingSubdivision]);
 
 	return (
 		<>
@@ -159,20 +128,6 @@ const AddresForm = ({ checkoutToken, next }) => {
 								))}
 							</Select>
 						</Grid>
-						{/* <Grid item xs={12} sm={6}>
-							<InputLabel>Shipping Options</InputLabel>
-							<Select
-								value={shippingOption}
-								fullWidth
-								onChange={(e) => setShippingOption(e.target.value)}
-							>
-								{options.map((option) => (
-									<MenuItem key={option.id} value={option.id}>
-										{option.label}
-									</MenuItem>
-								))}
-							</Select>
-						</Grid> */}
 					</Grid>
 					<br />
 					<div style={{ display: 'flex', justifyContent: 'space-between' }}>

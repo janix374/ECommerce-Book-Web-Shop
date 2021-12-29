@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { styleBox1, styleBox2, styleBox3, styleMainBox } from './styles';
 
 const HomeCategoryComponent = (props) => {
-	console.log(props);
 	const { path, frontimg, backgroundimg, styleComponen, title } = props;
 	return (
 		<Box component='div' sx={styleMainBox}>
